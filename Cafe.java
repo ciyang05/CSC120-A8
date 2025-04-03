@@ -30,11 +30,13 @@ public class Cafe extends Building implements CafeRequirements{
  
  
  
- 
- 
     }
  
  
+    public void showOptions() {
+        super.showOptions();
+        System.out.println("Available options at " + this.name + ":\n + sellCoffee(int size, int nSugarPackets, int nCreams) \n + restock(int nCoffeeOunces, int nSugarPackets, int nCreams, int nCups)");
+    }
  
  
     /**

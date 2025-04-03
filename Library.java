@@ -28,6 +28,13 @@ public Library(String name, String address, int nFloors ) {
       // myLibrary.printCollection();
       //myLibrary.containsTitle("Harry Potter");
     }
+
+    public void showOptions() {
+      super.showOptions();
+      System.out.println("Available options at " + this.name + ":\n + addTitle(String title) \n + removeTitle(String title) \n + checkOut(String title) \n + returnBook(String title) \n + containsTitle(String title) \n + isAvailable(String title) \n + printCollection()");
+    }
+
+
     /**
      * adds specific title to the collection hashtable 
      * @param title of book being added
