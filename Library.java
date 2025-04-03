@@ -35,6 +35,7 @@ public Library(String name, String address, int nFloors ) {
       super.showOptions();
       System.out.println("Available options at " + this.name + ":\n + addTitle(String title) \n + removeTitle(String title) \n + checkOut(String title) \n + returnBook(String title) \n + containsTitle(String title) \n + isAvailable(String title) \n + printCollection()");
     }
+    
     public void goToFloor(int floorNum){
       super.goToFloor(activeFloor);
       if (this.activeFloor == -1) {
