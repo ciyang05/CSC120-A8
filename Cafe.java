@@ -10,7 +10,7 @@ public class Cafe extends Building implements CafeRequirements{
     private int nCups; // The number of cups remaining in inventory
   
     /**
-     * constructor, assigns starting values to stocked items
+     * FULL constructor, assigns starting values to stocked items
      * @param name
      * @param address
      * @param nFloors
@@ -26,13 +26,21 @@ public class Cafe extends Building implements CafeRequirements{
         this.nSugarPackets = 15;
         this.nCreams = 20;
         this.nCups = 20;
- 
- 
- 
- 
     }
  
- 
+    /* Overloaded construtor with name only */
+    public Cafe(String name){
+        super();
+        this.name = name;
+
+    }
+
+    /* Overloaded method*/
+    public void goUp() {
+        this.goToFloor(this.activeFloor);
+        System.out.println("There's only one floor in this Cafe open to the costumers.");
+    }
+
     /**
      * shows other methods/options specific to cafe subclass
      */
@@ -40,7 +48,24 @@ public class Cafe extends Building implements CafeRequirements{
         super.showOptions();
         System.out.println("Available options at " + this.name + ":\n + sellCoffee(int size, int nSugarPackets, int nCreams) \n + restock(int nCoffeeOunces, int nSugarPackets, int nCreams, int nCups)");
     }
- 
+    
+    /*
+     * doesn't permit movement off the first floor
+     */
+    @Override
+    public void goToFloor(int floorNum){
+        super.goToFloor(activeFloor);
+        if (this.activeFloor != 1) {
+          throw new RuntimeException("This space is off limit to costumers. Must call enter() before navigating between floors.");
+      }
+          if (floorNum < 1 || floorNum > this.nFloors) {
+          throw new RuntimeException("Invalid floor number. Valid range for this Building is 1-" + this.nFloors +".");
+      }
+      System.out.println("You are now on floor #" + floorNum + " of " + this.name);
+      this.activeFloor = floorNum;
+    }
+
+
  
     /**
      * @param args
