@@ -50,6 +50,10 @@ public class CampusMap {
         myMap.addBuilding(new Building("Wilson House", "1 Paradise Rd, Northampton, MA 01063", 5));
         myMap.addBuilding(new Building("Jandon Center", "College Ln, Northampton, MA 01063", 1));
         myMap.addBuilding(new Building("Emerson House", "1 Paradise Rd, Northampton, MA 01063", 5));
+        myMap.addBuilding(new Building("Haven-Wesley", "1 Random Rd, Northampton, MA 01063", 4));
+        myMap.addBuilding(new Building("Lamont", "17 Prospect St, Northampton, MA 01063", 4));
+        myMap.addBuilding(new Building("McConnell Hall", "1 Science St, Northampton, MA 01063", 4));
+        myMap.addBuilding(new Building("President's House", "1 Presidential St, Northampton, MA 01063", 3));
         
         System.out.println(myMap);
     }
