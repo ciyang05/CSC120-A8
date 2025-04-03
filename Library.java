@@ -4,6 +4,7 @@ public class Library extends Building implements LibraryRequirements {
 
 // Attributes
 private Hashtable<String, Boolean> collection;
+boolean hasElevator;
 
 /**
  * @param name
@@ -14,6 +15,7 @@ public Library(String name, String address, int nFloors ) {
   super(name, address, nFloors);
   System.out.println("You have built a library: 📖");
   this.collection = new Hashtable<String, Boolean>();
+  this.hasElevator = true;
 }
 
     /**
@@ -33,7 +35,18 @@ public Library(String name, String address, int nFloors ) {
       super.showOptions();
       System.out.println("Available options at " + this.name + ":\n + addTitle(String title) \n + removeTitle(String title) \n + checkOut(String title) \n + returnBook(String title) \n + containsTitle(String title) \n + isAvailable(String title) \n + printCollection()");
     }
-
+    public void goToFloor(int floorNum){
+      super.goToFloor(activeFloor);
+      if (this.activeFloor == -1) {
+        throw new RuntimeException("You are not inside this library. Must call enter() before navigating between floors.");
+    }
+        if (floorNum < 1 || floorNum > this.nFloors) {
+        throw new RuntimeException("Invalid floor number. Valid range for this Building is 1-" + this.nFloors +".");
+    }
+    System.out.println("You are now on floor #" + floorNum + " of " + this.name);
+    this.activeFloor = floorNum;
+    
+    }
 
     /**
      * adds specific title to the collection hashtable 
