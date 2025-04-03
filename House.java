@@ -23,6 +23,10 @@ public class House extends Building implements HouseRequirements{
     System.out.println("You have built a house: 🏠");
   }
 
+
+  /**
+   * shows other methods/options specific to house subclass
+   */
   public void showOptions() {
     super.showOptions();
     System.out.println("Available options at " + this.name + ":\n + hasDiningRoom() \n + nResidents() \n + moveIn(Student s) \n + moveOut(Student s) \n + isResident(Student s)");
