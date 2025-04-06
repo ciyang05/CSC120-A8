@@ -9,8 +9,9 @@ public class Cafe extends Building implements CafeRequirements{
     private int nCreams; // The number of "splashes" of cream remaining in inventory
     private int nCups; // The number of cups remaining in inventory
   
+ 
     /**
-     * FULL constructor, assigns starting values to stocked items
+     * overloaded constructor with additional parameters
      * @param name
      * @param address
      * @param nFloors
@@ -21,24 +22,18 @@ public class Cafe extends Building implements CafeRequirements{
      */
     public Cafe(String name, String address, int nFloors, int nCoffeeOunces, int nSugarPackets, int nCreams, int nCups) {
         super(name, address, nFloors);
+        if (name != null) { this.name = name; }
+        if (address != null) { this.address = address; }
+        if (nFloors < 1) {
+            throw new RuntimeException("Cannot construct a building with fewer than 1 floor.");
+        }
+        this.nFloors = nFloors;
         System.out.println("You have built a cafe: ☕");
         this.nCoffeeOunces = 50;
         this.nSugarPackets = 15;
         this.nCreams = 20;
         this.nCups = 20;
-    }
- 
-    /* Overloaded construtor with name only */
-    public Cafe(String name){
-        super();
-        this.name = name;
 
-    }
-
-    /* Overloaded method*/
-    public void goUp() {
-        this.goToFloor(this.activeFloor);
-        System.out.println("There's only one floor in this Cafe open to the costumers.");
     }
 
     /**
