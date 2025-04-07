@@ -66,7 +66,7 @@ public class Library extends Building implements LibraryRequirements {
      */
     public void goToFloor(int floorNum) {
       if (hasElevator == false) {
-        throw new RuntimeException("This house does not have an elevator.");
+        throw new RuntimeException("This library does not have an elevator.");
       }
       if (this.activeFloor == -1) {
           throw new RuntimeException("You are not inside this Library. Must call enter() before navigating between floors.");
