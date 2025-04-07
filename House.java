@@ -7,9 +7,27 @@ public class House extends Building implements HouseRequirements{
   private ArrayList <Student> residents;
   private boolean hasDiningRoom;
 
+  /**
+   * overloaded constructor with name only
+   * @param name
+   */
+  public House (String name) {
+    this.name = name;
+  }
 
   /**
-   * the constructor, which creates an instance of a house
+   * overloaded constructor with name and address only
+   * @param name
+   * @param address
+   */
+  public House (String name, String address) {
+    this.name = name;
+    this.address = address;
+  }
+
+
+  /**
+   * full constructor
    * @param name
    * @param address
    * @param nFloors

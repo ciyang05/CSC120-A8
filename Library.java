@@ -2,21 +2,41 @@ import java.util.Hashtable;
 /* This is a stub for the Library class */
 public class Library extends Building implements LibraryRequirements {
 
-// Attributes
-private Hashtable<String, Boolean> collection;
-boolean hasElevator;
+  // Attributes
+  private Hashtable<String, Boolean> collection;
+  boolean hasElevator;
 
-/**
- * @param name
- * @param address
- * @param nFloors
- */
-public Library(String name, String address, int nFloors ) {
-  super(name, address, nFloors);
-  System.out.println("You have built a library: 📖");
-  this.collection = new Hashtable<String, Boolean>();
-  this.hasElevator = true;
-}
+  /**
+   * overloaded constructor with name only
+   * @param name
+   */
+  public Library(String name) {
+    this.name = name;
+  }
+
+
+  /**
+   * overloaded constructor with name and address only
+   * @param name
+   * @param address
+   */
+  public Library(String name, String address) {
+    this.name = name;
+    this.address = address;
+  }
+
+  /**
+  * full constructor
+  * @param name
+  * @param address
+  * @param nFloors
+  */
+  public Library(String name, String address, int nFloors) {
+    super(name, address, nFloors);
+    System.out.println("You have built a library: 📖");
+    this.collection = new Hashtable<String, Boolean>();
+    this.hasElevator = true;
+  }
 
     /**
      * @param args
