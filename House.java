@@ -6,6 +6,7 @@ public class House extends Building implements HouseRequirements{
   // Attributes 
   private ArrayList <Student> residents;
   private boolean hasDiningRoom;
+  boolean hasElevator;
 
   /**
    * overloaded constructor with name only
@@ -106,6 +107,26 @@ public class House extends Building implements HouseRequirements{
       return false;
     }
   } 
+
+
+  /**
+   * allows movement between non-adjacent floors only if elevator is present
+   */
+  public void goToFloor(int floorNum) {
+    if (hasElevator == false) {
+      throw new RuntimeException("This house does not have an elevator.");
+    }
+    if (this.activeFloor == -1) {
+        throw new RuntimeException("You are not inside this House. Must call enter() before navigating between floors.");
+    }
+    if (floorNum < 1 || floorNum > this.nFloors) {
+      throw new RuntimeException("Invalid floor number. Valid range for this Building is 1-" + this.nFloors +".");
+    }
+    super.goToFloor(activeFloor);
+    System.out.println("You are now on floor #" + floorNum + " of " + this.name);
+    this.activeFloor = floorNum;
+
+    }
 
 
   /**

@@ -68,18 +68,14 @@ public class Cafe extends Building implements CafeRequirements{
        
     }
  
+
+    /**
+     * does not allow movement off the first floor for customers
+     */
     public void goToFloor(int floorNum){
-        super.goToFloor(activeFloor);
-        if (this.activeFloor != -1) {
-          throw new RuntimeException("You are not inside this cafe. Must call enter() before navigating between floors.");
-      }
-          if (floorNum < 1 || floorNum > this.nFloors) {
-          throw new RuntimeException("Invalid floor number. Valid range for this Building is 1-" + this.nFloors +".");
-      }
-      System.out.println("You are now on floor #" + floorNum + " of " + this.name);
-      this.activeFloor = floorNum;
+        throw new RuntimeException("You are not permitted to go to another floor. Customers remain on floor 1.");
       
-      }
+    }
 
 
     /**

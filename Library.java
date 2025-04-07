@@ -60,18 +60,25 @@ public class Library extends Building implements LibraryRequirements {
       System.out.println("Available options at " + this.name + ":\n + addTitle(String title) \n + removeTitle(String title) \n + checkOut(String title) \n + returnBook(String title) \n + containsTitle(String title) \n + isAvailable(String title) \n + printCollection()");
     }
     
-    public void goToFloor(int floorNum){
-      super.goToFloor(activeFloor);
+
+    /**
+     * allows movement between non-adjacent floors only if elevator is present
+     */
+    public void goToFloor(int floorNum) {
+      if (hasElevator == false) {
+        throw new RuntimeException("This house does not have an elevator.");
+      }
       if (this.activeFloor == -1) {
-        throw new RuntimeException("You are not inside this library. Must call enter() before navigating between floors.");
-    }
-        if (floorNum < 1 || floorNum > this.nFloors) {
+          throw new RuntimeException("You are not inside this Library. Must call enter() before navigating between floors.");
+      }
+      if (floorNum < 1 || floorNum > this.nFloors) {
         throw new RuntimeException("Invalid floor number. Valid range for this Building is 1-" + this.nFloors +".");
-    }
-    System.out.println("You are now on floor #" + floorNum + " of " + this.name);
-    this.activeFloor = floorNum;
-    
-    }
+      }
+      super.goToFloor(activeFloor);
+      System.out.println("You are now on floor #" + floorNum + " of " + this.name);
+      this.activeFloor = floorNum;
+  
+      }
 
     /**
      * adds specific title to the collection hashtable 
